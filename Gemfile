@@ -30,4 +30,5 @@ gem 'therubyracer'
 group :test do
   # Pretty printed test output
   gem 'turn', :require => false
+  # gem 'shoulda-matchers'
 end
