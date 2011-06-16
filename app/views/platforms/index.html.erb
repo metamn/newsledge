@@ -1,0 +1,15 @@
+<h1 class="title">Platforms</h1>
+
+<div id="operations">
+  <ul class="inline-list">
+    <li><%=link_to 'Suggest a new platform', new_platform_path %></li>
+  </ul>
+</div>
+
+<div id="items">
+  <% @platforms.each do |platform| %>
+    <div id="item">
+      <%= platform.name %>
+    </div>
+  <% end %>
+</div>
