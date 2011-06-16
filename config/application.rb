@@ -45,5 +45,8 @@ module Newsledge
 
     # Enable the asset pipeline
     config.assets.enabled = true
+    
+    # Devise Mailer setup
+    config.action_mailer.default_url_options = { :host => 'localhost:3000' }
   end
 end
