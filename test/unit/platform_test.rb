@@ -21,4 +21,8 @@ class PlatformTest < ActiveSupport::TestCase
     p2 = Platform.new( :name => 'test')
     assert !p2.save, "name should be unique"
   end
+  
+  test "should have a status with [suggested, working on, active]" do
+    pending
+  end
 end

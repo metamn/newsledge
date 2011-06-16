@@ -21,9 +21,13 @@ class PlatformsControllerTest < ActionController::TestCase
   
   test "should list all platforms" do
     get :index
-    assert_select "#items"
+    assert_select "#items #name"
   end
   
+  test "should show creation date of platform" do
+    get :index
+    assert_select "#items #date"
+  end
   
   # Add
   #

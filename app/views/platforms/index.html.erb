@@ -9,7 +9,12 @@
 <div id="items">
   <% @platforms.each do |platform| %>
     <div id="item">
-      <%= platform.name %>
+      <div id="name">
+        <%= platform.name %>
+      </div>
+      <div id="date">
+        Created <%= time_ago_in_words platform.created_at %> ago.
+      </div>
     </div>
   <% end %>
 </div>

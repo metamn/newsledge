@@ -1,4 +1,4 @@
-# A list of platforms newsledge can import data from
+# A list of platforms Newsledge can import data from
 # All platforms must have an open API to make reading data possible
 #
 # name - The name of the platform
