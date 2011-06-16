@@ -18,6 +18,7 @@ gem 'jquery-rails'
 gem 'execjs'
 gem 'therubyracer'
 gem 'devise'
+gem 'cancan'
 
 # Use unicorn as the web server
 # gem 'unicorn'
