@@ -28,10 +28,10 @@ class ActionController::TestCase
     assert_select 'h1.title', t
   end
   
-  # Checks if the items of a collections are listed
-  def list
+  # Checks if the field is listed 
+  def list(field)
     get :index
-    assert_select "#items #name"
+    assert_select "#items #" + field
   end
   
   def not_found(collection)

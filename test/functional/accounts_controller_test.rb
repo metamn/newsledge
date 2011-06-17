@@ -19,8 +19,12 @@ class AccountsControllerTest < ActionController::TestCase
   test "should notice if there are no accounts yet" do
     not_found @accounts  
   end
+    
+  test "should list name" do
+    list "name"
+  end
   
-  test "should list accounts" do
-    list
+  test "should list platform" do
+    list "platform"
   end
 end
