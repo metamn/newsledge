@@ -3,13 +3,22 @@ require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
 
 class ActiveSupport::TestCase
-  # Setup all fixtures in test/fixtures/*.(yml|csv) for all tests in alphabetical order.
-  #
-  # Note: You'll currently still have to declare fixtures explicitly in integration tests
-  # -- they do not yet inherit this setting
   fixtures :all
-
-  # Add more helper methods to be used by all tests here...  
+ 
+ 
+  # belongs_to
+  def belongs_to(table, field, value)
+    item = table.new field.to_sym => value
+    assert item.save
+  end
+ 
+  # validates uniqueness of
+  def unique(table, field)
+    i1 = table.new field.to_sym => 'test1'
+    i1.save
+    i2 = table.new field.to_sym => 'test1'
+    assert !i2.save, "#{field} must be unique"
+  end  
 end
 
 class ActionController::TestCase

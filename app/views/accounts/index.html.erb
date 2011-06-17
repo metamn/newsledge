@@ -1,21 +1,25 @@
-<h1 class="title">Accounts</h1>
+<h1>Listing accounts</h1>
 
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Platform</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
 
-<% unless @accounts.blank? %>
-  <div id="items">
-    <% @accounts.each do |account| %>
-      <div id="item">
-        <div id="name">
-          <%= account.name %>
-        </div>
-        <div id="date">
-          Created <%= time_ago_in_words account.created_at %> ago.
-        </div>
-      </div>
-    <% end %>
-  </div>
-<% else %>
-  <div id="not_found">
-    <p class="notice">No items found.</p>
-  </div>
+<% @accounts.each do |account| %>
+  <tr>
+    <td><%= account.name %></td>
+    <td><%= Platform.find(account.platform_id).name %></td>
+    <td><%= link_to 'Show', account %></td>
+    <td><%= link_to 'Edit', edit_account_path(account) %></td>
+    <td><%= link_to 'Destroy', account, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
 <% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Account', new_account_path %>

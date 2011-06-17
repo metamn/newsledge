@@ -1,30 +1,9 @@
 require 'test_helper'
 
 class AccountsControllerTest < ActionController::TestCase
-  def setup
-    @user = users(:other)
-    sign_in @user
-  end
-  
-  # Index
-  #
-  test "should get index" do
-    index :accounts
-  end
-  
-  test "should list accounts starting with the title" do
-    title 'Accounts'
-  end
-  
-  test "should notice if there are no accounts yet" do
-    not_found @accounts  
-  end
-    
-  test "should list name" do
-    list "name"
-  end
-  
-  test "should list platform" do
-    list "platform"
+  test "user can see only it's own accounts" do
+    a1 = users(:cs).accounts.map {|a| a.id}
+    a2 = users(:other).accounts.map {|a| a.id}
+    assert (a1 & a2 == [])
   end
 end

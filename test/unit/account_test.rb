@@ -1,20 +1,15 @@
 require 'test_helper'
 
 class AccountTest < ActiveSupport::TestCase
-  test "should belong to an user" do
-    @user = users(:other)
-    assert @user.accounts
+  test "name must be unique" do
+    unique Account, :name
   end
   
-  test "should belong to a platform" do
-    @account = accounts(:one)
-    assert @account.platform
+  test "account must be associated to users" do
+    belongs_to Account, :user, users(:other)
   end
   
-  test "should have a unique name" do
-    a1 = Account.new :name => 'test1'
-    a1.save
-    a2 = Account.new :name => 'test1'
-    assert !a2.save
+  test "account must be associated to platforms" do
+    belongs_to Account, :platform, platforms(:one)
   end
 end

@@ -3,6 +3,6 @@
 - Platform is tested manually using unit tests
 - Unit tests are working very well (models, controllers and views)
 - The red-green-refactor is working well
-- All tests can be shared into test_helper.rb
+- All tests can be shared and reaused with test_helper.rb >> it's ok to use shoulda matchers instead of writing yours
 - From now on scaffolds will be used with default tests, only models and any new code added will be tested
 
