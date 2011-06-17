@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  status: MyString
+  count: 1
+  log: MyText
+
+two:
+  status: MyString
+  count: 1
+  log: MyText

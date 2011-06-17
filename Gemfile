@@ -32,5 +32,5 @@ gem 'cancan'
 group :test do
   # Pretty printed test output
   gem 'turn', :require => false
-  # gem 'shoulda-matchers'
+  gem 'shoulda'
 end

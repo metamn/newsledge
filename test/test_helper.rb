@@ -2,9 +2,18 @@ ENV["RAILS_ENV"] = "test"
 require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
 
+require 'shoulda/rails'
+
+
 class ActiveSupport::TestCase
   fixtures :all
  
+  # has_many
+  def has_many(table, field, value)
+    item = table.new 
+    item.field << value
+    assert item.save
+  end
  
   # belongs_to
   def belongs_to(table, field, value)

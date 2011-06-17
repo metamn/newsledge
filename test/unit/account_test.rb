@@ -12,4 +12,6 @@ class AccountTest < ActiveSupport::TestCase
   test "account must be associated to platforms" do
     belongs_to Account, :platform, platforms(:one)
   end
+  
+  should have_many(:imports)
 end
