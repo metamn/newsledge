@@ -25,4 +25,9 @@ class PlatformTest < ActiveSupport::TestCase
   test "should have a status with [suggested, working on, active]" do
     pending
   end
+  
+  test "should have many accounts" do
+    p = Platform.new
+    assert p.accounts
+  end
 end

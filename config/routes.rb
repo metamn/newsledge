@@ -1,5 +1,7 @@
 Newsledge::Application.routes.draw do
-  get "user/home"
+  resources :accounts
+
+  get "users/home"
 
   get "home/index"
 

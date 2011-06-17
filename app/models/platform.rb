@@ -9,4 +9,6 @@
 #  Platform.new :name => 'twitter', :description => 'Allows only 200 items to be read at once....' 
 class Platform < ActiveRecord::Base
   validates_uniqueness_of :name
+  
+  has_many :accounts
 end

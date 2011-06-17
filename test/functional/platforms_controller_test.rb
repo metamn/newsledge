@@ -10,24 +10,19 @@ class PlatformsControllerTest < ActionController::TestCase
   # Index
   #
   test "should get index" do
-    get :index
-    assert_response :success
-    assert_not_nil assigns(:platforms)
+    index :platforms
   end
   
   test "should list platforms starting with the title" do
-    get :index
-    assert_select 'h1.title', 'Platforms'
+    title 'Platforms'
   end
   
-  test "should call for the Add action (when there are no platforms added yet)" do
-    get :index
-    assert_select 'a', 'Suggest a new platform'
+  test "should notice if there are no platforms yet" do
+    not_found @platforms  
   end
   
   test "should list all platforms" do
-    get :index
-    assert_select "#items #name"
+    list
   end
   
   test "should show creation date of platform" do

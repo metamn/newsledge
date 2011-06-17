@@ -6,15 +6,21 @@
   </ul>
 </div>
 
-<div id="items">
-  <% @platforms.each do |platform| %>
-    <div id="item">
-      <div id="name">
-        <%= platform.name %>
+<% unless @platforms.blank? %>
+  <div id="items">
+    <% @platforms.each do |platform| %>
+      <div id="item">
+        <div id="name">
+          <%= platform.name %>
+        </div>
+        <div id="date">
+          Created <%= time_ago_in_words platform.created_at %> ago.
+        </div>
       </div>
-      <div id="date">
-        Created <%= time_ago_in_words platform.created_at %> ago.
-      </div>
-    </div>
-  <% end %>
-</div>
+    <% end %>
+  </div>
+<% else %>
+  <div id="not_found">
+    <p class="notice">No items found.</p>
+  </div>
+<% end %>

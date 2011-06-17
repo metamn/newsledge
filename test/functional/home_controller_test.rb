@@ -14,6 +14,6 @@ class HomeControllerTest < ActionController::TestCase
     @user = users(:cs)
     sign_in @user
     get :index
-    assert_redirected_to user_home_path
+    assert_redirected_to users_home_path
   end
 end

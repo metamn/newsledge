@@ -1,0 +1,21 @@
+<h1 class="title">Accounts</h1>
+
+
+<% unless @accounts.blank? %>
+  <div id="items">
+    <% @accounts.each do |account| %>
+      <div id="item">
+        <div id="name">
+          <%= account.name %>
+        </div>
+        <div id="date">
+          Created <%= time_ago_in_words account.created_at %> ago.
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% else %>
+  <div id="not_found">
+    <p class="notice">No items found.</p>
+  </div>
+<% end %>

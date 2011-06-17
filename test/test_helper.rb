@@ -14,5 +14,30 @@ end
 
 class ActionController::TestCase
   include Devise::TestHelpers
+  
+  # Checks if index is rendered together with the collection to be shown
+  def index(collection)
+    get :index
+    assert_response :success
+    assert_not_nil assigns(collection.to_sym)
+  end
+  
+  # Checks if index has a title
+  def title(t)
+    get :index
+    assert_select 'h1.title', t
+  end
+  
+  # Checks if the items of a collections are listed
+  def list
+    get :index
+    assert_select "#items #name"
+  end
+  
+  def not_found(collection)
+    collection = []
+    get :index
+    assert_select '#not_found .notice'
+  end
 end
 
