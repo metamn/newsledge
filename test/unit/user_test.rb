@@ -1,9 +1,5 @@
 require 'test_helper'
 
-class UserTest < ActiveSupport::TestCase
-  
-  test "user should have accounts" do
-    @user = users(:other)
-    assert @user.accounts
-  end
+class UserTest < ActiveSupport::TestCase  
+  should have_many :accounts
 end

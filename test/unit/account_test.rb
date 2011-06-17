@@ -1,17 +1,9 @@
 require 'test_helper'
 
 class AccountTest < ActiveSupport::TestCase
-  test "name must be unique" do
-    unique Account, :name
-  end
+  should validate_uniqueness_of :name
   
-  test "account must be associated to users" do
-    belongs_to Account, :user, users(:other)
-  end
-  
-  test "account must be associated to platforms" do
-    belongs_to Account, :platform, platforms(:one)
-  end
-  
-  should have_many(:imports)
+  should belong_to :user  
+  should belong_to :platform  
+  should have_many :imports
 end

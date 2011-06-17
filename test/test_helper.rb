@@ -7,27 +7,6 @@ require 'shoulda/rails'
 
 class ActiveSupport::TestCase
   fixtures :all
- 
-  # has_many
-  def has_many(table, field, value)
-    item = table.new 
-    item.field << value
-    assert item.save
-  end
- 
-  # belongs_to
-  def belongs_to(table, field, value)
-    item = table.new field.to_sym => value
-    assert item.save
-  end
- 
-  # validates uniqueness of
-  def unique(table, field)
-    i1 = table.new field.to_sym => 'test1'
-    i1.save
-    i2 = table.new field.to_sym => 'test1'
-    assert !i2.save, "#{field} must be unique"
-  end  
 end
 
 class ActionController::TestCase
