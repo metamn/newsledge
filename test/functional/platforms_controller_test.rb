@@ -1,6 +1,12 @@
 require 'test_helper'
 
 class PlatformsControllerTest < ActionController::TestCase
+
+  def setup
+    @user = users(:other)
+    sign_in @user
+  end
+  
   # Index
   #
   test "should get index" do

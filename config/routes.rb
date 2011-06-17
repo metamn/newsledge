@@ -1,4 +1,6 @@
 Newsledge::Application.routes.draw do
+  get "user/home"
+
   get "home/index"
 
   devise_for :users
