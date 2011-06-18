@@ -6,3 +6,9 @@
 - Testing is done using fixtures
 
 
+# Resources
+
+- Resources should never be nested more than 1 level deep 
+- Almost each controller/resource is children of Users but due to the rule above they are kept separated not nested
+- Everything must be a resource to follow the Rails way, exceptions must be very very well analysed
+

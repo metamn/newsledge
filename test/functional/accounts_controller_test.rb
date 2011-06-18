@@ -6,4 +6,9 @@ class AccountsControllerTest < ActionController::TestCase
     a2 = users(:other).accounts.map {|a| a.id}
     assert (a1 & a2 == [])
   end
+  
+  test "accounts must show their import history" do
+    get :index
+    assert.select 'a', 'Imports'
+  end
 end

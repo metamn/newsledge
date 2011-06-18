@@ -1,6 +1,12 @@
 require 'test_helper'
 
 class ImportsControllerTest < ActionController::TestCase
+  
+  def setup
+    @user = users(:other)
+    sign_in @user
+  end
+  
   test "should get index" do
     get :index
     assert_response :success
