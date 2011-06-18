@@ -1,4 +1,12 @@
 Newsledge::Application.routes.draw do
+  get "imports/index"
+
+  get "imports/start"
+
+  get "imports/stop"
+
+  get "imports/show"
+
   resources :accounts
 
   get "users/home"
