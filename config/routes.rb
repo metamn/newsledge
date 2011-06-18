@@ -1,21 +1,11 @@
 Newsledge::Application.routes.draw do
-  get "imports/index"
-
-  get "imports/start"
-
-  get "imports/stop"
-
-  get "imports/show"
-
+  resources :imports
   resources :accounts
-
-  get "users/home"
-
-  get "home/index"
-
-  devise_for :users
-
   resources :platforms
+  
+  get "users/home"
+  get "home/index"
+  devise_for :users
   
   root :to => "home#index"
 

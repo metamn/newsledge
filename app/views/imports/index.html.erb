@@ -1,2 +1,29 @@
-<h1>Imports#index</h1>
-<p>Find me in app/views/imports/index.html.erb</p>
+<h1>Listing imports</h1>
+
+<table>
+  <tr>
+    <th>Status</th>
+    <th>Count</th>
+    <th>Log</th>
+    <th>Account</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @imports.each do |import| %>
+  <tr>
+    <td><%= import.status %></td>
+    <td><%= import.count %></td>
+    <td><%= import.log %></td>
+    <td><%= import.account_id %></td>
+    <td><%= link_to 'Show', import %></td>
+    <td><%= link_to 'Edit', edit_import_path(import) %></td>
+    <td><%= link_to 'Destroy', import, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Import', new_import_path %>
