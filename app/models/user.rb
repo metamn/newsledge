@@ -7,4 +7,11 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me
   
   has_many :accounts
+  
+  # Collecting imports for the current user through accounts
+  # 
+  # Returns and array of imports
+  def imports
+    accounts = self.accounts.map {|a| a.imports }.flatten    
+  end
 end

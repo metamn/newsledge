@@ -11,4 +11,9 @@ class ImportsControllerTest < ActionController::TestCase
     get :index, :format => :js
     assert_response :success
   end
+ 
+  test "user can see only it's own imports" do
+    get :index
+    assert_select 'td', {:text => 'import_1', :count => 0}
+  end
 end

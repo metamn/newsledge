@@ -2,7 +2,7 @@ class ImportsController < ApplicationController
   # GET /imports
   # GET /imports.json
   def index
-    @imports = Import.all
+    @imports = current_user.imports
 
     respond_to do |format|
       format.html # index.html.erb

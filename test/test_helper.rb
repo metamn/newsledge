@@ -38,3 +38,27 @@ class ActionController::TestCase
   end
 end
 
+
+class ActionController::IntegrationTest
+  include Devise::TestHelpers
+  fixtures :all
+end
+
+
+# Turning off deprecation warnings in the autotest output
+module ActiveSupport
+  module Deprecation
+    class << self
+      def warn(message = nil, callstack = caller)
+        # modif pvh the following lines make sure no deprecation warnings are sent 
+        # for code that is
+        # not by my but in some gem or plugin...
+        return if silenced  || callstack.grep(/myrailsappname/).blank?
+        # return if silenced 
+        deprecation_message(callstack, message).tap do |m|
+          behavior.each { |b| b.call(m, callstack) }
+        end
+      end
+    end
+  end
+end  

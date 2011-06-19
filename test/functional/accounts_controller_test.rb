@@ -3,9 +3,9 @@ require 'test_helper'
 class AccountsControllerTest < ActionController::TestCase
   
   test "user can see only it's own accounts" do
-    a1 = users(:cs).accounts.map {|a| a.id}
-    a2 = users(:other).accounts.map {|a| a.id}
-    assert (a1 & a2 == [])
+    sign_in users(:cs)
+    get :index
+    assert_select 'td', {:text => 'account2', :count => 0}
   end
   
   test "accounts must show their import history" do

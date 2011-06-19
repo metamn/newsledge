@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
 
 one:
-  status: MyString
+  status: import_1
   count: 1
-  log: MyText
+  log: import_log_1
 
 two:
-  status: MyString
-  count: 1
-  log: MyText
+  status: import_2
+  count: 2
+  log: import_log_2

@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
 
 one:
-  name: account1
-  platform_id: 3
+  name: account_1
+  platform_id: 1
   user_id: 1
 
 two:
-  name: account2
-  platform_id: 1
+  name: account_2
+  platform_id: 2
   user_id: 2
