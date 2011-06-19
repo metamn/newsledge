@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  def home
+  def dashboard
   end
 
 end

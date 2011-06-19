@@ -2,12 +2,12 @@ Newsledge::Application.routes.draw do
   resources :imports
   resources :accounts
   resources :platforms
-  
-  get "users/home"
-  get "home/index"
+ 
   devise_for :users
+  match "/:name" => 'users#dashboard'
   
   root :to => "home#index"
+  get "home/index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

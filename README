@@ -1,9 +1,9 @@
 # Testing
 
-- Always approached via red-green-refactor
 - At the beginning all tests were written manually, and refactored into test_helper.rb. Now we use shoulda matchers
 - Generated code is trusted and not tested at all
 - Testing is done using fixtures
+- Always approach via red-green-refactor. If not later it is impossible to check if newly written code is tested or not
 
 
 # Resources

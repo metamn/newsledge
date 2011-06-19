@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable
   attr_accessible :email, :password, :password_confirmation, :remember_me
   
+  validates_uniqueness_of :name
   has_many :accounts
   
   # Collecting imports for the current user through accounts
