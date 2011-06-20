@@ -1,4 +1,9 @@
 <h1 class="title">Welcome to Newsledge</h1>
+<% unless current_user.blank? %>
+  <p>
+  Hello <%= current_user.name %>. <%= link_to 'View your page', "/#{current_user.name}" %>
+  </p>
+<% end %>
 
 
 

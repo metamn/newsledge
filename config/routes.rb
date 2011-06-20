@@ -3,8 +3,13 @@ Newsledge::Application.routes.draw do
   resources :accounts
   resources :platforms
  
-  devise_for :users
-  match "/:name" => 'users#dashboard'
+  devise_for :users do
+    get "/login" => "devise/sessions#new"
+    get "/logout" => "devise/sessions#destroy"
+    get "/register" => "devise/registrations#new"
+  end
+  resources :users
+  match ':id' => 'users#show'
   
   root :to => "home#index"
   get "home/index"

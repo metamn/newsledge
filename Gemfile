@@ -32,5 +32,6 @@ gem 'cancan'
 group :test do
   # Pretty printed test output
   gem 'turn', :require => false
-  gem 'shoulda'
+  gem 'shoulda' # unit testing
+  gem 'capybara' # integration testing
 end

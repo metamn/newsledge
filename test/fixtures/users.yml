@@ -1,7 +1,9 @@
 cs:
+  name: cs
   email: cs@clair.ro
   id: 1
   
 other:
+  name: other
   email: other@other.ro
   id: 2

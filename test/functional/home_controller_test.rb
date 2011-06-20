@@ -1,19 +1,20 @@
 require 'test_helper'
 
 class HomeControllerTest < ActionController::TestCase
+  def setup
+    @user = users(:other)
+    sign_in @user    
+  end
     
   test "guests should see a general introduction page" do
-    @user = users(:cs)
-    sign_in @user
     sign_out @user
     get :index
     assert_select 'h1.title', 'Welcome to Newsledge'  
   end
   
-  test "logged in users should be redirected to their personalised home page" do 
-    @user = users(:cs)
-    sign_in @user
+  test "logged in users see a link to their personalised home page" do 
     get :index
-    assert_redirected_to "/#{@user.name}"
-  end
+    assert_select 'a', 'View your page'
+  end  
+  
 end

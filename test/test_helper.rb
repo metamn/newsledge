@@ -39,12 +39,6 @@ class ActionController::TestCase
 end
 
 
-class ActionController::IntegrationTest
-  include Devise::TestHelpers
-  fixtures :all
-end
-
-
 # Turning off deprecation warnings in the autotest output
 module ActiveSupport
   module Deprecation
