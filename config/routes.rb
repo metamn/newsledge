@@ -9,11 +9,18 @@ Newsledge::Application.routes.draw do
     get "/register" => "devise/registrations#new"
   end
   resources :users
-  match ':id' => 'users#show'
   
   root :to => "home#index"
   get "home/index"
-
+  
+  mount Resque::Server, :at => "/resque"
+  
+  # this must be the last declaration
+  # matches '/username' to '/users/username'
+  match ':id' => 'users#show'
+  
+  
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
