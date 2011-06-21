@@ -20,14 +20,9 @@ gem 'therubyracer'
 gem 'devise'
 gem 'cancan'
 
-# Use unicorn as the web server
-# gem 'unicorn'
 
-# Deploy with Capistrano
-# gem 'capistrano'
-
-# To use debugger
-# gem 'ruby-debug19', :require => 'ruby-debug'
+gem 'thin'
+gem 'resque', :require => "resque/server"
 
 group :test do
   # Pretty printed test output

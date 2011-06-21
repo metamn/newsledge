@@ -26,6 +26,7 @@ class ImportsController < ApplicationController
   # GET /imports/new.json
   def new
     @import = Import.new
+    Resque.enqueue(Importer, @import.id)
 
     respond_to do |format|
       format.html # new.html.erb
