@@ -1,6 +1,8 @@
 # Testing
 
-- At the beginning all tests were written manually, and refactored into test_helper.rb. Now we use shoulda matchers
+- At the beginning all tests were written manually, and refactored into test_helper.rb. 
+- Now we use shoulda matchers for Unit testing and Capybara for Integration testing.
+- Functional tests are not using things like RSpec and Cucumber but Rails default
 - Generated code is trusted and not tested at all
 - Testing is done using fixtures
 - Always approach via red-green-refactor. If not later it is impossible to check if newly written code is tested or not
@@ -11,4 +13,19 @@
 - Resources should never be nested more than 1 level deep 
 - Almost each controller/resource is children of Users but due to the rule above they are kept separated not nested
 - Everything must be a resource to follow the Rails way, exceptions must be very very well analysed
+
+
+# Background Jobs
+
+- they need Foreman and Thin
+- Resque/Redis has better performance than Delayed Job/SQL
+- DJ uses the default database thus reduces application performance + eats storage
+- Heroku offers free 5MB Redis which must be enough for background jobs: http://blog.redistogo.com/2010/07/26/resque-with-redis-to-go/
+
+
+# Database/Heroku
+- PSQL: 5MB free, 20GB - 15USD/month
+- MySQL: no option too expensive even with Amazon RDS
+- Mongo: 240MB free, 4GB - 40USD/month
+- Redis:  5MB free, 20MB - 5USD/month
 
