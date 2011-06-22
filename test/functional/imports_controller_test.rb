@@ -18,4 +18,12 @@ class ImportsControllerTest < ActionController::TestCase
     assert_response :success
     assert_not_nil assigns(:account)
   end
+  
+  test "after creating an import a background job is started" do
+    assert_difference('Import.count') do
+      post :create, :import => { :account_id => accounts(:one).id }
+    end 
+    assert_redirected_to import_path(assigns(:import))
+    assert_equal 'Importer started', flash[:notice]
+  end
 end

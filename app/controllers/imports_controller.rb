@@ -88,6 +88,7 @@ class ImportsController < ApplicationController
   
   private
     def import
+      flash[:notice] = 'Importer started'
       Resque.enqueue(Importer, @import.id)
     end
   
