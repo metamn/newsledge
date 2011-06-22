@@ -11,7 +11,7 @@ class AccountsControllerTest < ActionController::TestCase
   test "accounts must show their import history" do
     @user = users(:other)
     sign_in @user
-    get :index
-    assert_select 'a', 'Imports'
+    get :imports
+    assert_response :success
   end
 end

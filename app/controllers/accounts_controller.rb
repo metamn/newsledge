@@ -1,4 +1,17 @@
 class AccountsController < ApplicationController
+  
+  # GET /accounts/1/imports
+  # it is an AJAX call
+  def imports
+    @account = current_user.accounts.find(params[:id])
+    @imports = @account.imports
+    
+    respond_to do |format|
+      format.js
+    end
+  end
+  
+  
   # GET /accounts
   # GET /accounts.json
   def index

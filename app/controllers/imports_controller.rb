@@ -1,4 +1,7 @@
 class ImportsController < ApplicationController
+  after_filter :import, :only => [:create]
+  
+  
   # GET /imports
   # GET /imports.json
   def index
@@ -7,14 +10,13 @@ class ImportsController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @imports }
-      format.js
     end
   end
 
   # GET /imports/1
   # GET /imports/1.json
   def show
-    @import = Import.find(params[:id])
+    @import = current_user.imports.find(params[:id]).first
 
     respond_to do |format|
       format.html # show.html.erb
@@ -25,8 +27,8 @@ class ImportsController < ApplicationController
   # GET /imports/new
   # GET /imports/new.json
   def new
-    @import = Import.new
-    Resque.enqueue(Importer, @import.id)
+    @account = Account.find(params[:account])
+    @import = @account.imports.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -43,7 +45,7 @@ class ImportsController < ApplicationController
   # POST /imports.json
   def create
     @import = Import.new(params[:import])
-
+    
     respond_to do |format|
       if @import.save
         format.html { redirect_to @import, notice: 'Import was successfully created.' }
@@ -82,4 +84,11 @@ class ImportsController < ApplicationController
       format.json { head :ok }
     end
   end
+  
+  
+  private
+    def import
+      Resque.enqueue(Importer, @import.id)
+    end
+  
 end

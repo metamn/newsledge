@@ -12,8 +12,8 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :account_id %><br />
-    <%= f.select :account_id, Account.all.collect {|p| [ p.name, p.id ] }, { :include_blank => false } %>
+    Account: <%= @account.name %> on <%= @account.platform.name %>
+    <%= f.hidden_field :account_id, {:value => @account.id} %>
   </div>
   <div class="actions">
     <%= f.submit %>

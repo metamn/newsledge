@@ -16,7 +16,7 @@
     <td><%= link_to 'Show', account %></td>
     <td><%= link_to 'Edit', edit_account_path(account) %></td>
     <td><%= link_to 'Destroy', account, confirm: 'Are you sure?', method: :delete %></td>
-    <td><%= link_to 'Imports', imports_path, :remote => true %></td>
+    <td><%= link_to 'Imports', imports_account_path(account), :remote => true %></td>
   </tr>
   <div class="imports">
   </div>

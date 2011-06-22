@@ -1,8 +1,13 @@
 Newsledge::Application.routes.draw do
   resources :imports
-  resources :accounts
   resources :platforms
- 
+  resources :accounts do
+    member do
+      get "imports"
+    end
+  end
+  
+  
   devise_for :users do
     get "/login" => "devise/sessions#new"
     get "/logout" => "devise/sessions#destroy"
