@@ -7,15 +7,16 @@ class Importer
     start = Time.now
     msg = "Import job started at #{start.asctime}, "
     puts msg
+    sleep 3
     begin
       import = Import.find(id)
-      msg += "it took #{(Time.now - start).to_s} seconds, "
+      msg += "it took #{(Time.now - start).round(2).to_s} seconds, "
       msg += "x items were imported."
-      import.update_attribute :status, 'success'      
+      import.update_attribute :status, 'Success'      
     rescue => e
-      msg += "it took #{(Time.now - start).to_s} seconds, "
+      msg += "it took #{(Time.now - start).round(2).to_s} seconds, "
       msg += "and it was unsuccessful with error message #{e.message}"
-      import.update_attribute :status, 'failed'  
+      import.update_attribute :status, 'Failed'  
     end
     import.update_attribute :log, msg
     puts msg    

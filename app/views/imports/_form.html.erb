@@ -14,6 +14,8 @@
   <div class="field">
     Account: <%= @account.name %> on <%= @account.platform.name %>
     <%= f.hidden_field :account_id, {:value => @account.id} %>
+    <%= f.hidden_field :log, {:value => "Import started"} %>
+    <%= f.hidden_field :status, {:value => "Pending"} %>
   </div>
   <div class="actions">
     <%= f.submit %>

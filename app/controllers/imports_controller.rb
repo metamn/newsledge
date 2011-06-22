@@ -16,11 +16,15 @@ class ImportsController < ApplicationController
   # GET /imports/1
   # GET /imports/1.json
   def show
-    @import = current_user.imports.find(params[:id]).first
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @import }
+    @import = Import.find(params[:id])
+    unless (current_user.accounts.map{|a| a.id}.include? @import.account_id)
+      flash[:notice] = "Invalid import"
+      redirect_to imports_url
+    else
+      respond_to do |format|
+        format.html # show.html.erb
+        format.json { render json: @import }
+      end
     end
   end
 
