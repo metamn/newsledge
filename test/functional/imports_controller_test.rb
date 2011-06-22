@@ -11,7 +11,7 @@ class ImportsControllerTest < ActionController::TestCase
    
   test "user can see only it's own imports" do
     get :index
-    assert_select 'td', {:text => 'import_1', :count => 1}
+    assert_select 'td', {:text => 'import_1', :count => 0}
   end
   
   test "new imports are created through an account" do
@@ -35,7 +35,7 @@ class ImportsControllerTest < ActionController::TestCase
   
   test "on listing imports the 'Edit' button is not shown" do
     get :index
-    assert_select 'a', {:text => 'Edit', :count => 1}
+    assert_select 'a', {:text => 'Edit', :count => 0}
   end
   
   test "imports cannot be updated" do
@@ -50,12 +50,12 @@ class ImportsControllerTest < ActionController::TestCase
   
   test "on listing imports the 'Destroy' button is not shown" do
     get :index
-    assert_select 'a', {:text => 'Destroy', :count => 1}
+    assert_select 'a', {:text => 'Destroy', :count => 0}
   end
   
   test "on listing imports the 'Show' button is not shown" do
     get :index
-    assert_select 'a', {:text => 'Show', :count => 1}
+    assert_select 'a', {:text => 'Show', :count => 0}
   end
   
   test "on listing imports the 'New import' link is not shown" do

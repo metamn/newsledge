@@ -11,6 +11,7 @@ class UserTest < ActiveSupport::TestCase
   end
   
   test "should provide imports for user" do
-    assert User.new.imports
+    @user = users(:other)
+    assert_not_nil @user.imports
   end
 end

@@ -6,7 +6,8 @@ class ImportsController < ApplicationController
   # GET /imports.json
   def index
     @imports = current_user.imports
-
+    
+    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @imports }
