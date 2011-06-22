@@ -42,7 +42,7 @@ class ImportsController < ApplicationController
 
   # GET /imports/1/edit
   def edit
-    @import = Import.find(params[:id])
+    redirect_to imports_url
   end
 
   # POST /imports
@@ -64,29 +64,13 @@ class ImportsController < ApplicationController
   # PUT /imports/1
   # PUT /imports/1.json
   def update
-    @import = Import.find(params[:id])
-
-    respond_to do |format|
-      if @import.update_attributes(params[:import])
-        format.html { redirect_to @import, notice: 'Import was successfully updated.' }
-        format.json { head :ok }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @import.errors, status: :unprocessable_entity }
-      end
-    end
+    redirect_to imports_path
   end
 
   # DELETE /imports/1
   # DELETE /imports/1.json
   def destroy
-    @import = Import.find(params[:id])
-    @import.destroy
-
-    respond_to do |format|
-      format.html { redirect_to imports_url }
-      format.json { head :ok }
-    end
+    redirect_to imports_path
   end
   
   
