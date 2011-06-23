@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  content: item_1
+  link: link_1
+  account_id: 1
+  user_id: 1
+
+two:
+  content: item_2
+  link: link_2
+  account_id: 1
+  user_id: 1

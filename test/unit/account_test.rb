@@ -6,4 +6,5 @@ class AccountTest < ActiveSupport::TestCase
   should belong_to :user  
   should belong_to :platform  
   should have_many :imports
+  should have_many :items
 end

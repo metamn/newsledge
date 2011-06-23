@@ -1,4 +1,6 @@
 Newsledge::Application.routes.draw do
+  resources :items
+
   resources :imports
   resources :platforms
   resources :accounts do

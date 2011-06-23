@@ -1,5 +1,4 @@
 class Importer
-  include ActionView::Helpers::DateHelper
 
   @queue = :import_queue
   
@@ -7,7 +6,7 @@ class Importer
     start = Time.now
     msg = "Import job started at #{start.asctime}, "
     puts msg
-    sleep 3
+    
     begin
       import = Import.find(id)
       msg += "it took #{(Time.now - start).round(2).to_s} seconds, "

@@ -20,10 +20,12 @@
 - they need Foreman and Thin
 - Resque/Redis has better performance than Delayed Job/SQL
 - DJ uses the default database thus reduces application performance + eats storage
-- Heroku offers free 5MB Redis which must be enough for background jobs: http://blog.redistogo.com/2010/07/26/resque-with-redis-to-go/
+- Heroku offers free 5MB Redis which must be enough for background jobs: 
+http://blog.redistogo.com/2010/07/26/resque-with-redis-to-go/
 
 
 # Database/Heroku
+
 - PSQL: 5MB free, 20GB - 15USD/month
 - MySQL: no option too expensive even with Amazon RDS
 - Mongo: 240MB free, 500MB - 10USD/month, 2GB - 20USD/month, 4GB - 40USD/month

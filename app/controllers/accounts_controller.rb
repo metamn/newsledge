@@ -26,11 +26,15 @@ class AccountsController < ApplicationController
   # GET /accounts/1
   # GET /accounts/1.json
   def show
-    @account = current_user.accounts.find(params[:id])
+    begin
+      @account = current_user.accounts.find(params[:id])
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @account }
+      respond_to do |format|
+        format.html # show.html.erb
+        format.json { render json: @account }
+      end
+    rescue
+      redirect_to accounts_url
     end
   end
 

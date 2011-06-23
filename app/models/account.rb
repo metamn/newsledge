@@ -6,4 +6,5 @@ class Account < ActiveRecord::Base
   belongs_to :user
   belongs_to :platform
   has_many :imports
+  has_many :items
 end
