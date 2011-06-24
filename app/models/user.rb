@@ -11,13 +11,29 @@ class User < ActiveRecord::Base
   has_many :accounts
   has_many :items
   
-  # Collecting imports for the current user through accounts
+  # Collecting imports for the current_user through accounts
   # 
   # Returns and array of imports
   def imports
-    accounts = self.accounts.map {|a| a.imports }.flatten    
+    Import.find_all_by_account_id self.accounts
   end
   
+  # Checking if a single import belongs to current_user
+  #
+  # id - the Import id
+  #
+  # Returns the Import or raises and exception caught later in ApplicationController
+  def import(id)
+    return Import.find(id) if Import.find(id).account.user.id == self.id
+    raise ActiveRecord::RecordNotFound
+  end
+  
+  
+  # Converts :users/:id to :users/:name
+  #
+  # Used to generate user home urls like host/:username instead of host:/userid
+  #
+  # Returns :name when  params[:id] is called
   def to_param
     "#{self.name}"
   end

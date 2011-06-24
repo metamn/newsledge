@@ -1,7 +1,5 @@
 class ItemsController < ApplicationController
   
-  before_filter :check_ownership, :only => [:show, :edit, :update, :destroy]
-
   # GET /items
   # GET /items.json
   def index
@@ -16,6 +14,7 @@ class ItemsController < ApplicationController
   # GET /items/1
   # GET /items/1.json
   def show      
+    @item = current_user.items.find(params[:id])
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @item }
@@ -30,6 +29,7 @@ class ItemsController < ApplicationController
 
   # GET /items/1/edit
   def edit
+    @item = current_user.items.find(params[:id])
   end
 
   # POST /items
@@ -41,7 +41,7 @@ class ItemsController < ApplicationController
   # PUT /items/1
   # PUT /items/1.json
   def update
-    
+    @item = current_user.items.find(params[:id])
     respond_to do |format|
       if @item.update_attributes(params[:item])
         format.html { redirect_to @item, notice: 'Item was successfully updated.' }
@@ -56,6 +56,7 @@ class ItemsController < ApplicationController
   # DELETE /items/1
   # DELETE /items/1.json
   def destroy
+    @item = current_user.items.find(params[:id])
     @item.destroy
 
     respond_to do |format|
@@ -64,14 +65,4 @@ class ItemsController < ApplicationController
     end
   end
   
-  
-  private 
-    
-    def check_ownership
-      begin 
-        @item = current_user.items.find(params[:id])
-      rescue
-        redirect_to items_url
-      end
-    end
 end
