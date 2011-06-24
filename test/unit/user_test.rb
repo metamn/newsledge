@@ -6,6 +6,7 @@ class UserTest < ActiveSupport::TestCase
   should have_many :accounts
   should have_many :items
   should have_many :tags
+  should have_many :references
   
   def setup
     @user = users(:other)

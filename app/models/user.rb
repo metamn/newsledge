@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
   has_many :accounts
   has_many :items
   has_many :tags
+  has_many :references
   
   # Collecting imports for the current_user through accounts
   # 
