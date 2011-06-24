@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :name
   has_many :accounts
   has_many :items
+  has_many :tags
   
   # Collecting imports for the current_user through accounts
   # 

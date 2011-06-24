@@ -1,4 +1,6 @@
 Newsledge::Application.routes.draw do
+  resources :tags
+
   resources :items
 
   resources :imports

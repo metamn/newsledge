@@ -17,11 +17,21 @@ class ItemsControllerTest < ActionController::TestCase
     assert_redirected_to items_url
   end
   
+  test "items cannot be added manually (new)" do
+    get :new
+    assert_redirected_to items_url
+  end
+  
   test "items are editable only be the owner (edit)" do
     get :edit, :id => items(:one).id
     assert_redirected_to items_url
   end
-  
+
+  test "items cannot be added manually (create)" do
+    post :create
+    assert_redirected_to items_url
+  end
+    
   test "items are editable only be the owner (update)" do
     put :update, :id => items(:one).id
     assert_redirected_to items_url
@@ -31,16 +41,8 @@ class ItemsControllerTest < ActionController::TestCase
     delete :destroy, :id => items(:one).id
     assert_redirected_to items_url
   end
+   
   
-  test "items cannot be added manually (new)" do
-    get :new
-    assert_redirected_to items_url
-  end
-  
-  test "items cannot be added manually (create)" do
-    post :create
-    assert_redirected_to items_url
-  end
   
   test "'New Item' link should not be shown on index page" do
     get :index

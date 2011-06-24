@@ -5,6 +5,7 @@ class UserTest < ActiveSupport::TestCase
   should validate_uniqueness_of :name
   should have_many :accounts
   should have_many :items
+  should have_many :tags
   
   def setup
     @user = users(:other)
@@ -21,4 +22,5 @@ class UserTest < ActiveSupport::TestCase
   test "should provide a single import for user" do
     assert_not_nil @user.import imports(:two)
   end
+  
 end
