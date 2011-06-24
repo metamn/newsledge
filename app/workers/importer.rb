@@ -9,6 +9,8 @@ class Importer
     
     begin
       import = Import.find(id)
+      items = twitter import.account.name
+      Item.save items, import.account
       msg += "it took #{(Time.now - start).round(2).to_s} seconds, "
       msg += "x items were imported."
       import.update_attribute :status, 'Success'      
@@ -19,6 +21,10 @@ class Importer
     end
     import.update_attribute :log, msg
     puts msg    
+  end
+  
+  def self.twitter(user)
+    Twitter.user_timeline("#{user}", :count => 200, :include_rts => true, :include_entities => true) 
   end
 end
 

@@ -17,9 +17,11 @@ gem 'jquery-rails'
 
 gem 'execjs'
 gem 'therubyracer'
+
+
 gem 'devise'
 gem 'cancan'
-
+gem 'twitter'
 
 gem 'thin'
 gem 'resque', :require => "resque/server"
