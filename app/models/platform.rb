@@ -11,4 +11,16 @@ class Platform < ActiveRecord::Base
   validates_uniqueness_of :name
   
   has_many :accounts
+  
+  # Adding the import job to the queue
+  #
+  # Each platform has its own worker
+  #
+  # import_id - The ID of the Import which will be updated
+  def import(import_id)
+    case self.name
+    when 'Twitter'
+      Resque.enqueue(ImportTwitter, import_id)
+    end
+  end
 end

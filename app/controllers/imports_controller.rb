@@ -72,9 +72,12 @@ class ImportsController < ApplicationController
   
   
   private
+    # Adding an import job to the queue
+    #
+    # This is an after filter for :create
     def import
       flash[:notice] = 'Importer started'
-      Resque.enqueue(Importer, @import.id)
+      @import.account.platform.import(@import.id)      
     end
   
 end
