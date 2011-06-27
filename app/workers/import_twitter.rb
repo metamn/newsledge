@@ -87,14 +87,46 @@ class ImportTwitter
   end
   
   # Importing all items
+  #
+  # First imports the latest 200 items
+  # Then, in a loop imports all other items.
   #  
+  # Returns and array of imported items
   def self.import_all(user)
-    Twitter.user_timeline("#{user}", :count => 200, :include_rts => true, :include_entities => true) 
+    imported = import user
+    items = imported
+    while imported.size >= 2   
+      last = items.last.id_str
+      imported = import_older user, last
+      items += imported  
+      puts "Imported other #{imported.size} items"
+      puts "Import items size now is #{items.size}"
+    end
+    items
   end
   
   # Updating items
   #
   def self.update(user)
+  end
+  
+  # Using the Twitter gem to import the first items
+  #
+  # user - the username to get the timeline
+  #
+  # Returns an array of Twitter objects
+  def self.import(user)
+    Twitter.user_timeline("#{user}", :count => 200, :include_rts => true, :include_entities => true) 
+  end
+  
+  # Using the Twitter gem to import the older items
+  #
+  # user - the username to get the timeline
+  # counter - from where to start importing tweets
+  #
+  # Returns an array of Twitter objects
+  def self.import_older(user, counter)
+    Twitter.user_timeline("#{user}", :max_id => counter, :count => 200, :include_rts => true, :include_entities => true) 
   end
 end
 

@@ -6,6 +6,9 @@ class ItemTest < ActiveSupport::TestCase
   should have_and_belong_to_many :tags
   should have_and_belong_to_many :references
   
+  should validate_presence_of :slug
+  should validate_uniqueness_of :slug
+  
   test "should save Twitter items" do
     pending
   end
