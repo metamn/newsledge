@@ -21,6 +21,8 @@ class Platform < ActiveRecord::Base
     case self.name
     when 'Twitter'
       Resque.enqueue(ImportTwitter, import_id)
+    when 'Tumblr'
+      Resque.enqueue(ImportTumblr, import_id)
     end
   end
 end

@@ -89,12 +89,13 @@ class ImportTwitter
   # Importing all items
   #
   # First imports the latest 200 items
-  # Then, in a loop imports all other items.
+  # Then, in a loop imports all older items.
   #  
   # Returns and array of imported items
   def self.import_all(user)
     imported = import user
     items = imported
+    
     while imported.size >= 2   
       last = items.last.id_str
       imported = import_older user, last
