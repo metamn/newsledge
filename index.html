@@ -2,88 +2,59 @@
 layout: default
 ---
 
-<iframe class='shoplocket-embed' src='https://www.shoplocket.com/products/ab390b9a2ec/embed' width='517' height='406' frameborder='0' scrolling='no'></iframe>
-
-
-<nav id="products">
-  <h2>Filtrare</h2>
-  <ul>
-    <li class="active"><a href="/">Cadouri noi in magazin</a></li>
-    <li><a href="/">Bestsellers</a></li>
-    <li><a href="/">Promotii</a></li>
-    <li><a href="/">Livrare imediata</a></li>
-    <li><a href="/">Recomandari speciale pentru tine</a></li>
-  </ul>
-</nav>
-
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
+    
+    <title>Newsledge : From News To Knowledge</title> 
+    
+    <link href="base.css" rel="stylesheet"> 
+    <link href="layout.css" rel="stylesheet"> 
+  </head>
   
-<section id="products">
-  <h2 class="hidden">Cadouri</h2>
-  {% assign product-list-type = 'scroll' %}
-  {% for post in site.posts limit:8 %}
-    {% include product.html %}
-  {% endfor %}
-  <div id="product-scroll-left" class="product-scroller">&lsaquo;</div>
-  <div id="product-scroll-right" class="product-scroller">&rsaquo;</div>
-  <div id="see-all-products" class="scroll">
-    <a href="/">Vezi toate produsele &raquo;</a></div>
-  <div class="clear"></div>
-</section>
-
-
-<section id="sales">
-  <h2>Wishlist</h2>
-  {% assign product-list-type = 'mixed' %}
-  {% for post in site.posts limit:5 %}
-    {% include product.html %}
-  {% endfor %}
-</section>
-
-
-<section id="subscribe-gift-service">
-  <h2 class="hidden">Servicii de cadouri</h2>
-  <div id="image">
-    <img src="/assets/gift.jpg">
-  </div>
-  <div id="call-for-action">
-    <h3>Vrei sa te scapi de <em>grija</em> cadourilor pentru tot anul?
-    Pentru toate ocaziile?</h3>
-    <p>Spune cand vrei sa dai cadouri, la ce suma te-ai gandit, si noi te anuntam cu 
-    o saptamana inainte cu oferte speciale cu livrare imediata din stock.</p>
-    
-    <form>
+  <body>
+    <div class="container">
+      <h2>Newsledge</h2>
+      <h3>From News To Knowledge</h3>
+      
+      <blockquote>
+        Your memory will be constantly, instantaneously aided by the information available on the Internet. The two will begin to become indistinguishable. &mdash; Ray Kurzweil
+      </blockquote>
+      
+      <blockquote>
+        The overall presence of information overflow, the logorrhea of information introduces anarchy. &mdash; Stanislaw Lem
+      </blockquote>
+      
+      <p>&nbsp;</p>
+      <p>
+        Newsledge is a multi-faceted tool because it knows everything about you.        
+      </p>
+      
+      <p>
+        You can name it Your Personal Search Engine, Your Mind Rate Monitor, Your Own Flow Engine, or Your Quantified Meta Self. 
+      </p>
+      
+      <p>
+        It makes you a Metaman, it makes your digital ego and echo visible, visualisable, analysable and understandable. Without Newsledge you are a simple consumer with no feedback and knowledge distilled by your — more and more obvious — digital existence. 
+      </p>
+      
+      <p>
+        It is your power, reputation, attention in one place. So guard it with your life. 
+      </p>
+      
+      <p>&nbsp;</p>
+      <hr/>
+      <p>&nbsp;</p>
+      
       <ul>
-        <li id="subscribe-now">
-          <a class="button" href="/">Da, ma inscriu la serviciile de cadouri Smuff</a>
-        </li>
-        <li id="subscribe-email">
-          <input name="subscribe-later" placeholder="Adresa Dvs. de email">
-          <br/>
-          <input name="submit" type="submit" value="Ma inscriu mai tarziu.">
-        </li>
+        <li><a href="http://metaman.tumblr.com/tagged/newsledge">the blog</a></li>
+        <li><a href="http://delicious.com/csbartus/newsledge">the bookmarks<a></li>
+        <li><a href="http://csbartus.heroku.com">the pilot</a></li>
       </ul>
-    </form>
-    
-  </div>  
-</section>
-
-
-
-
-<section id="blog">
-  <h2>In curand in magazin</h2>
-  {% assign product-list-type = 'thumb' %}
-  {% for post in site.posts limit:5 offset:5 %}
-    {% include product.html %}
-  {% endfor %}
-</section>
-
-<section id="blog">
-  <h2>De pe blog</h2>
-  {% assign product-list-type = 'thumb' %}
-  {% for post in site.posts limit:5 %}
-    {% include product.html %}
-  {% endfor %}
-</section>
-
-
+      
+      <p>&nbsp;</p>
+     </div>
+  </body>
+</html>

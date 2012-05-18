@@ -1,31 +1,7 @@
 ---
 ---
 
-{% include head.html %}  
 
-<body class="{{ page.id }}">
-  <div id="background-image">&nbsp;</div>
-  
-  <div class="container">
-    {% include header.html %}   
-        
-    <div id="content">
-      {% include sidebar.html %}
-      
-      <div id="body">
-        {{ content }}
-      </div>
-      
-    </div>  
-    <div class="clear"></div>
-    
-    {% include footer.html %}
-  </div>
-</body>
-</html>
-
-
-<!-- HTML5 structure: http://www.456bereastreet.com/archive/201104/html5_document_outline_revisited/
--->
+{{ content }}
 
 
