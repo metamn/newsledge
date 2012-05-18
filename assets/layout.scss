@@ -1,0 +1,561 @@
+---
+---
+
+/* SASS structure: http://37signals.com/svn/posts/3003-css-taking-control-of-the-cascade
+*/
+
+@import "assets/mixins";
+
+
+
+/* Typography 
+*/
+body {
+  font-family: Arial ,Helvetica, sans-serif;
+}
+
+h1, h2, h3 {
+  font-family: MuseoSans-500;
+  text-transform: uppercase;
+}
+
+
+/* Header 
+*/
+
+body {
+  #background-image {
+    /*background: url(/assets/background-image.png);
+    width: 300px;
+    position: relative;
+    z-index: -2; */
+  }
+  .container {
+    width: 90%;
+    margin: 0 auto;
+    /*position: relative;
+    z-index: 1;
+    top: -300px;*/
+    
+    header {
+      @include block;
+      margin-bottom: 1.25em;
+      
+      #logo {
+        @include col(33%);
+        #image {
+          @include col(25%);
+        }
+        #title {
+          @include col(75%);
+          h1 {
+            @include smuff-font;
+            font-size: 3em; /* Traditional, overwritten */
+            padding: .59em 0 0;
+            
+          }
+        }
+        #strapline {
+          @include col(75%);
+          font-size: smaller;
+        }
+      }
+      #search {
+        @include col(33%);
+        h2 {
+          @include normal-font;
+          visibility: hidden;
+        }
+        #searchform {
+          input[name="search"] {
+            font-size: smaller;
+            width: 85%;
+            height: 2.5em;
+          }
+          input[name="submit"] {
+            background: url("/assets/search.png") no-repeat center center #eee;
+            width: 10%;
+            height: 2.5em;
+          }
+        }
+      }
+      #menu {
+        @include block;
+        @include col(33%);
+        #cart {
+          @include col(50%);
+          text-align: right;
+          float: right;
+       
+          h2 {
+            @include normal-font;
+            visibility: hidden;
+          }
+          ul {
+            @include ul-barebones;
+            margin-top: .625em;  
+            
+            li {
+              span {
+                position: relative;
+                top: -.312em;
+              }
+            }          
+          }
+        }
+        #information {
+          @include col(50%);
+          text-align: right;
+          float: right;
+          
+          h2 {
+            @include normal-font;
+            visibility: hidden;
+          }
+          ul {
+            @include ul-barebones;
+            margin-top: .625em;
+            
+            li {
+              span {
+                position: relative;
+                top: -.312em;
+              }
+            }
+          }
+        }
+      }
+      #menu-products {
+        @include block;
+        
+        .select-box {
+          @include col(32.9%);
+          margin-right: .1%;
+          
+          cursor: pointer;
+          h2 {
+            margin: 1.25em 0;
+            padding: 0 0 .312em .312em;
+          }
+          h2:after {
+            content: '\2039';
+            font-size: 2em;
+            @include rotate(270deg, 1.2);
+            padding: .312em .312em .625em;
+          }
+          
+          ul {
+            @include ul-navigation;           
+            
+            li {
+              display: block;
+              cursor: pointer;
+            }
+          }
+        }
+        #events {
+          @include col(34%);
+          margin-right: 0;
+        }                
+      }      
+    }
+    header.fixed {
+      height: 5.5em;
+      width: 90%;
+      z-index: 1;
+      
+      #banner {
+        display: none;
+      }
+      
+      #logo {
+        #image {
+          @include col(7%);
+          margin: 0 1.5%;
+        }
+        #title {
+          h1 {
+            @include normal-font;
+            @include smuff-title-font;
+          }          
+        }
+        #strapline {
+          display: none;
+        }
+      }
+      #search {
+        visibility: hidden;        
+      }
+      #menu {
+        @include normal-font;
+        h2 {
+          display: none;
+        }
+        
+        #information {
+          span {
+            display: none;
+          }          
+        }
+        
+        #cart {
+          width: 40%;
+        }
+      }
+      #menu-products {
+        font-size: smaller;
+        width: 70%;
+        position: relative;
+        top: -8.5em;
+        left: 10%;
+        
+        .select-box {          
+          h2 {
+            margin: 0 0 .312em;;
+          }
+          
+          ul {
+            li {              
+              padding: .312em;
+            }
+            li.active {
+              font-size: 2em;
+              @include smuff-title-font;
+              width: 200%;
+              border-bottom: none;
+            }
+          }    
+        }     
+      }
+    }
+  }
+}
+
+
+
+
+/* Startpage
+*/
+
+#banner {
+  @include col(100%);
+  background: url(/assets/spring.jpg) no-repeat white;
+  
+  height: 400px;
+  margin: 1.25em 0 0;
+  
+  text-align: center;
+  
+  h1, h2, h3, p {
+    @include smuff-title-font;
+    
+    margin-left: 40%;
+    width: 50%;
+  }
+}
+
+#content {  
+  #sidebar {
+    @include col(16%);
+    margin-left: 4%;
+    float: right;
+                
+    ul#navigation-icons {      
+      @include ul-inline;
+      font-family: 'WebSymbolsRegular', Arial, sans-serif;
+      
+      li {
+        margin-right: 1.25em;
+        cursor: pointer;
+      }
+    } 
+    ul {
+      @include ul-navigation; 
+    }
+  }      
+  #body {
+    @include col(80%);
+    
+    nav#products {
+      @include block;
+      
+      h2 {
+        display: none;
+      }
+      ul {
+        @include ul-inline;
+        li {
+          padding: .625em .312em;
+        }
+      }  
+    }
+    
+    section {
+      margin-bottom: 5em;
+      @include block;
+    }
+    
+    #subscribe-gift-service {      
+      
+      #image {
+        @include col(33%);
+      }
+      #call-for-action {
+        @include col(60%);
+        margin: 0 3%;        
+        float: right;
+      
+        form {
+          @include block;
+          margin: 5em 0;
+          
+          ul {
+            @include ul-inline;
+            
+            li#subscribe-now {
+              @include col(40%);
+              margin-right: 10%;
+            }
+            li#subscribe-email {
+              @include col(50%);
+              
+              input[name="subscribe-later"] {
+                width: 99%;
+              }
+              input[name="submit"] {
+                width: 100%;
+              }
+            }
+          }
+        }
+      
+      }      
+    }
+  }
+}
+#content.fixed {
+  position: relative;
+  top: 15em;  
+}
+
+
+
+/* Product
+*/
+
+
+#product.mixed {
+  @include col(58%);
+  margin-right: 2%;
+  
+  #info {
+    position: relative;
+    top: -11.5em;
+    height: 5em;
+    font-size: smaller;
+    
+    #inner {
+      padding: 0 .312em;
+      width: 40%;
+      
+      
+      ul#shopping-info {
+        @include ul-barebones; 
+        
+        #price {
+          width: 90%;        
+        }
+        #delivery {
+          margin: .625em 0 1.25em .312em;
+          padding-bottom: .625em;
+        }
+      }
+    }
+  }
+}
+#product.thumbly {
+  @include col(18%);
+  margin: 2.5% 2% 2% 0;
+  cursor: pointer;
+  
+  #info {
+    #inner {
+      h2 {
+        @include normal-font;
+      }
+      
+      #shopping-info {
+        display: none;
+      }
+    }
+  }
+}
+
+#product.thumb {
+  @include col(18%);
+  margin-right: 2%;
+  
+  #info {
+    #inner {
+      h2 {
+        @include normal-font;
+      }
+      
+      #shopping-info {
+        display: none;
+      }
+    }
+  }
+}
+
+#product.scroll {
+  display: none;
+  height: 40em;
+  
+  #info {
+    position: relative;
+    top: -12em;
+    height: 5em;
+    
+    #inner {
+      padding: 0 .312em;
+      width: 40%;
+      
+      h2 {
+        @include smuff-title-font;
+      }
+      ul#shopping-info {
+        @include ul-barebones; 
+        
+        #price {
+          width: 60%;        
+        }
+        #delivery {
+          margin: .625em 0 1.25em .312em;
+          padding-bottom: .625em;
+        }
+      }
+    }
+  }
+}
+#product.active {
+  display: block;
+}
+.product-scroller {
+  font-size: 4em;  
+  position: relative;
+  top: -6em;
+  cursor: pointer;
+  width: 10%;
+  height: 0;
+}
+#product-scroll-left {
+  left: 1%;
+}
+#product-scroll-right {
+  left: 96%;
+}
+#see-all-products.scroll {
+  position: relative;
+  top: -2.5em;
+  left: 90%;
+  width: 15%;
+  padding: 1.25em;
+}
+
+#product.list {
+  @include block;
+  margin-bottom: 5em;
+  
+  #info {
+    @include col(33%);
+    #inner {
+      padding-left: 1.25em;
+      
+      h2 {
+        @include smuff-title-font;
+      }
+      ul#shopping-info {
+        @include ul-barebones; 
+        
+        #price {
+          width: 80%;        
+        }
+        #delivery {
+          margin: .625em 0 1.25em;
+        }
+      }
+    }    
+  }
+  #image {
+    @include col(66%);
+  }
+}
+
+#product.grid1 {
+  @include col(33%);  
+  height: 30em;
+  
+  #info {
+    margin: 0 2.5em 0 0;
+    text-align: center;
+    
+    h2 {
+      @include smuff-title-font;
+      min-height: 2.5em;
+    }
+    ul#shopping-info {
+      @include ul-barebones; 
+      
+      #price {
+        width: 90%;
+        margin: 0 5%;
+      }
+      #delivery {
+        margin: .625em 0 1.25em;
+      }
+    }
+  }
+  #image {
+    margin: 0 2.5em 0 0;
+  }
+}
+
+#product.grid {
+  @include col(25%);  
+  height: 10em;
+  padding: 2.5em 0;
+  
+  #info {
+    display: none;
+    
+    margin: 0 2.5em 0 0;
+    text-align: center;
+    
+    h2 {
+      @include smuff-title-font;
+    }
+    ul#shopping-info {
+      @include ul-barebones; 
+      
+      #price {
+        width: 90%;
+        margin: 0 5%;
+      }
+      #delivery {
+        margin: .625em 0 1.25em;
+      }
+    }
+  }
+  #image {
+    margin: 0 2.5em 0 0;
+  }
+}
+#see-all-products.grid {
+  @include col(25%);  
+  height: 10em;
+  padding: 2.5em 0;
+  
+}
+
+

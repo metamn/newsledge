@@ -1,0 +1,49 @@
+<header>  
+  <hgroup id="logo">
+    <div id="image"><a href="/"><img src="/assets/smuff-logo.png"></a></div>
+    <div id="title"><a href="/"><h1>{{ site.title }}</h1></a></div>
+    <div id="strapline"><a href="/despre-noi"><p>{{ site.strapline }}</p></a></div>
+    <!-- it doesn't makes sense to use <h2> for the HTML5 Document Outliner.
+    <p> is good enough -->
+  </hgroup>
+  
+  search, info, cart utan egy dropdown ikon, mint a kategoriaknal ...
+  
+  {% include search.html %}
+  
+  <div id="menu">
+    <nav id="cart">
+      <h2>Cos cumparaturi</h2>
+      <ul>
+        <li><a href="/">
+          <img src="/assets/cart.png">
+          <span>(8,390 RON)</span>
+        </a></li>
+        <!--
+        <li><a href="/">Likes (Whishlist)</a></li>
+        <li><a href="/">Contul meu</a></li>
+        -->
+      </ul>
+    </nav>
+
+    <nav id="information">
+      <h2>Informatii</h2>
+      <ul>
+        <li><a href="/">
+          <img src="/assets/info.png">
+          <span>0740-456.127</span>
+        </a></li>
+        <!--
+        <li><a href="/">suport@smuff.ro</a></li>
+        <li><a href="/">Livrare in 24 ore</a></li>
+        <li><a href="/">Garantie 2 ani, Return 2 saptamani</a></li>
+        <li><a href="/">Mai multe informatii</a></li>
+        -->
+      </ul>
+    </nav>
+  </div>
+  
+  {% include home-bigbanner.html %}  
+  {% include menu-products.html %}
+</header>
+<div class="clear"></div>

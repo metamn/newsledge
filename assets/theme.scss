@@ -1,0 +1,211 @@
+---
+---
+
+@import "assets/mixins";
+
+
+
+
+$black: #000;
+$white: #fff;
+$grey: #666;
+$green: lightgreen;
+
+
+$bordo: #9E515C;
+$grey-background: #E7E7DF;
+$brown: #DFDDC9;
+$green: #C7D5BF;
+
+
+
+/* Mixins
+*/
+
+@mixin link-normal {
+  color: $black;
+  text-decoration: none;
+}
+
+
+
+
+
+/* General
+*/
+
+body {
+  background: url("/assets/background.jpg") repeat scroll 0 0 $grey-background;
+  
+  header {
+    #logo a, #logo a:visited {
+      @include link-normal;  
+    }
+  }
+  
+  header.fixed {
+    background: url("/assets/background.jpg") repeat scroll 0 0 $grey-background;
+    box-shadow: 0 10px 25px -10px rgba(0, 0, 0, 0.698), 0 1px rgba(0, 0, 0, 0.1), 0 0 4px rgba(0, 0, 0, 0.1) inset;
+  }
+  
+}
+
+/* Forms */
+
+a.button {
+  -moz-box-shadow: 0 1px 0 0 #bddbef inset;
+  -webkit-box-shadow: 0 1px 0 0 #bddbef inset;
+  box-shadow: 0 1px 0 0 #bddbef inset;
+  background-color: #A2CCE9;
+  background: -moz-linear-gradient(center top , #A2CCE9 5%, #87bde3 100%) repeat scroll 0 0 #A2CCE9;
+  background: -webkit-linear-gradient(top, #A2CCE9, #87bde3) repeat scroll 0 0 #A2CCE9;
+  border: 1px solid #79b5df;
+  color: #4C4C4C !important;
+  text-decoration: none !important;
+  text-shadow: 1px 1px 0 #bddbef;
+  
+  border-radius: 6px 6px 6px 6px;
+  cursor: pointer;
+  padding: 0.55em;
+}
+a.button:hover {
+  background-color: #87bde3;
+  background: -moz-linear-gradient(center top , #87bde3 5%, #A2CCE9 100%) repeat scroll 0 0 #87bde3;
+  background: -webkit-linear-gradient(top, #87bde3, #A2CCE9) repeat scroll 0 0 #87bde3;
+}
+
+
+
+nav {
+  ul {
+    li {
+      border-color: lighten($grey, 50%);
+      
+      a {
+        color: $grey;
+        text-decoration: none;
+      }
+      a:visited {
+        color: lighten($grey, 10%);
+      }
+      a:hover {
+        color: darken($grey, 30%);
+        text-decoration: none;
+      }
+    }
+    li.active {
+      background: $white;
+      
+      a, a:visited, a:hover {
+        color: $black;
+      }
+    }
+    
+  }
+}
+
+
+/* Header
+*/
+
+/* Product navigation menu
+*/
+
+#menu-products {
+  .select-box { 
+    ul {
+      background: $grey-background;
+      
+      li {
+        a {
+          @include link-normal;
+        }
+      }
+      li.active {
+        @include smuff-font;
+        font-size: 3em;
+      } 
+    }
+  }
+  #gifts {
+    h2 {
+      background: #FF358B;
+    }
+  }
+  #holidays {
+    h2 {
+      background: #01B0F0;
+    }
+  }
+  #events {
+    h2 {
+      background: #AEEE00;
+    }
+  }
+}
+
+
+/* Startpage 
+*/
+
+#body {
+  h1 {
+    color: $bordo;
+  }
+  
+  #subscribe-gift-service {
+    background: $brown;
+  }  
+}
+
+
+
+/* Products
+*/
+
+#product {
+  background: $grey-background;
+  #info {
+    #inner {
+      #shopping-info {
+        #delivery {
+          color: $grey;
+          font-size: smaller;
+        }
+      }
+    }
+  }
+  #image {
+    box-shadow: 0 10px 25px -10px rgba(0, 0, 0, 0.698), 0 1px rgba(0, 0, 0, 0.1), 0 0 4px rgba(0, 0, 0, 0.1) inset;
+  } 
+}
+
+#product.scroll, #product.mixed {
+  #inner {
+    background: $grey-background;
+    opacity: .9;
+  }
+}
+
+#product.grid {
+  background: $white;
+  
+  #image {
+    box-shadow: none;
+  }
+}
+
+#see-all-products {
+  background: red;
+}
+
+#product.thumbly-hover {
+  #image {
+    box-shadow: 0 10px 25px -10px rgba(120, 150, 210, 0.9), 0 1px rgba(0, 0, 0, 0.1), 0 0 4px rgba(0, 0, 0, 0.1) inset;
+  }
+}
+
+
+
+
+
